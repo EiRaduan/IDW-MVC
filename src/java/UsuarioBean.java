@@ -1,6 +1,7 @@
 
+import java.util.List;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -20,6 +21,24 @@ import javax.inject.Named;
 public class UsuarioBean {
     private Usuario usuario = new Usuario();
     private String confirmarSenha;
+    private List<Usuario> lista;
+
+    public List<Usuario> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Usuario> lista) {
+        this.lista = lista;
+    }
+
+    public String getDestinoSalvar() {
+        return destinoSalvar;
+    }
+
+    public void setDestinoSalvar(String destinoSalvar) {
+        this.destinoSalvar = destinoSalvar;
+    }
+    private String destinoSalvar;
 
     
     public Usuario getUsuario() {
@@ -39,6 +58,7 @@ public class UsuarioBean {
     }
     
     public String novo(){
+        this.destinoSalvar = "usuarioSucesso";
         this.usuario = new Usuario();
         this.usuario.setAtivo(true);
         return "usuario";
@@ -56,7 +76,39 @@ public class UsuarioBean {
         UsuarioRN usuarioRN = new UsuarioRN();
         usuarioRN.salvar(this.usuario);
         
-        return "usuarioSucesso";
+        return this.destinoSalvar;
     }
+    
+    public List<Usuario> getList(){
+        if(this.lista == null){
+            UsuarioRN usuarioRN = new UsuarioRN();
+            this.lista = usuarioRN.listar();
+        }
+        return this.lista;
+    }
+    
+   public String editar(){
+       this.confirmarSenha = this.usuario.getSenha();
+       return "/Publico/usuario";
+   }
+   
+   public String excluir(){
+       UsuarioRN usuarioRN = new UsuarioRN();
+       usuarioRN.excluir(this.usuario);
+       this.lista = null;
+       return null;
+   }
+   
+   public String ativar(){
+       if(this.usuario.isAtivo()){
+           this.usuario.setAtivo(false);
+       } else {
+           this.usuario.setAtivo(true);
+       }
+       
+       UsuarioRN usuarioRN = new UsuarioRN();
+       usuarioRN.salvar(this.usuario);
+       return null;
+   }
     
 }
