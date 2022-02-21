@@ -20,7 +20,10 @@ public class UsuarioDAOHibernate implements UsuarioDAO{
     }
     
     public void salvar(Usuario usuario){
+        this.session.beginTransaction();
         this.session.saveOrUpdate(usuario);
+        this.session.getTransaction().commit();
+        
     }
     
     public void atualizar(Usuario usuario){

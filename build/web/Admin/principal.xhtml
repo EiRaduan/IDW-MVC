@@ -25,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <f:facet name="footer">Final da listagem</f:facet>
                     
                     <h:column>
-                         <h:commandLink action="#{usuarioBean.ativar()}">
+                         <h:commandLink action="#{usuarioBean.ativar}">
                               <h:graphicImage  library="#{Resources['imagens:fundo_claro.png']}" name="usuario_ativo_#{usuario.ativo}.png" id="h_graphicImageid"/>
                               <f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}"/>
                          </h:commandLink>
@@ -43,14 +43,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     
                     <h:column>
                          <f:facet name="header">e-Mail</f:facet>
-                         <a href="mailto:#{usuario.email}">#{usuario.email}</a>
+                         
+                         <a href="mailto:#{usuario.email}"> <h:outputText>#{usuario.email}</h:outputText></a>
                     </h:column>
                     
                     <h:column>
                          <h:commandLink action="#{usuarioBean.editar}">
                               <h:graphicImage library="imagens" name="editar16.png" style="border: 0"/>
                               <f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}"/>
-                              <f:setPropertyActionListener target="#{usuarioBean.destinoSalvar}" value="/admin/principal"/>
+                              <f:setPropertyActionListener target="#{usuarioBean.destinoSalvar}" value="/Admin/principal"/>
                          </h:commandLink>
                     </h:column>
                     <h:column>

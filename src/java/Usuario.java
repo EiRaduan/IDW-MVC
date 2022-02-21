@@ -96,7 +96,6 @@ public class Usuario implements  Serializable{
         this.nascimento = nascimento;
     }
 
- 
 
     public String getCelular() {
         return celular;
@@ -175,6 +174,7 @@ public class Usuario implements  Serializable{
         }
         return Objects.equals(this.permissao, other.permissao);
     }
+   
 
     
    
