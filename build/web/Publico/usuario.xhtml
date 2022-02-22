@@ -26,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     
                     <h:outputLabel value="Data Nascimento:" for="data"/>
                     <h:inputText id="data" label="Data Nascimento" value="#{usuarioBean.usuario.nascimento}" size="10" maxlength="10" required="true">
-                         <f:convertDateTime dateStyle="medium"/>
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
                     </h:inputText>
                     
                     <h:outputLabel value="Celular:" for="celular"/>
@@ -55,7 +55,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
                </h:panelGrid>
                
-               <h:commandButton action="#{usuarioBean.salvar}" value="salvar"/>
+               <h:commandButton action="#{usuarioBean.salvar()}" value="salvar"/>
           </h:form>
      </h:body>
 </html>

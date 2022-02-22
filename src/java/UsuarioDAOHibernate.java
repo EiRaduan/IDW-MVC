@@ -19,22 +19,30 @@ public class UsuarioDAOHibernate implements UsuarioDAO{
         this.session = session;
     }
     
+    @Override
     public void salvar(Usuario usuario){
+        this.session.beginTransaction();
         this.session.saveOrUpdate(usuario);
+        this.session.getTransaction().commit();
+        
     }
     
+    @Override
     public void atualizar(Usuario usuario){
         this.session.merge(usuario);
     }
     
+    @Override
     public void excluir (Usuario usuario){
         this.session.delete(usuario);
     }
 
+    @Override
     public Usuario carregar(Integer codigo){
         return (Usuario) this.session.get(Usuario.class, codigo);
     }
     
+    @Override
     public Usuario buscarPorLogin(String login){
         String hql = "select u from Usuario u where u.login =:login";
         Query consulta = this.session.createQuery(hql);
@@ -43,8 +51,10 @@ public class UsuarioDAOHibernate implements UsuarioDAO{
         return (Usuario) consulta.uniqueResult();
     }
     
-    @SuppressWarnings("unchecked")
+    @Override
     public List<Usuario> listar(){
-        return this.session.createCriteria(Usuario.class).list();
+        this.session.beginTransaction();
+        List<Usuario> lista = this.session.createCriteria(Usuario.class).list();
+        return lista;
     }
 }

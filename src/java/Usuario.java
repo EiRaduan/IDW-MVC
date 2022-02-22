@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -34,7 +35,7 @@ public class Usuario implements  Serializable{
    @NaturalId
    private String login;
    private String senha;
-   private String nascimento;
+   private Date nascimento;
    private String celular;
    private boolean ativo;
    
@@ -87,13 +88,14 @@ public class Usuario implements  Serializable{
         this.senha = senha;
     }
 
-    public String getNascimento() {
+    public Date getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
+
 
     public String getCelular() {
         return celular;
@@ -122,15 +124,15 @@ public class Usuario implements  Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.codigo);
-        hash = 89 * hash + Objects.hashCode(this.nome);
-        hash = 89 * hash + Objects.hashCode(this.email);
-        hash = 89 * hash + Objects.hashCode(this.login);
-        hash = 89 * hash + Objects.hashCode(this.senha);
-        hash = 89 * hash + Objects.hashCode(this.nascimento);
-        hash = 89 * hash + Objects.hashCode(this.celular);
-        hash = 89 * hash + (this.ativo ? 1 : 0);
-        hash = 89 * hash + Objects.hashCode(this.permissao);
+        hash = 37 * hash + Objects.hashCode(this.codigo);
+        hash = 37 * hash + Objects.hashCode(this.nome);
+        hash = 37 * hash + Objects.hashCode(this.email);
+        hash = 37 * hash + Objects.hashCode(this.login);
+        hash = 37 * hash + Objects.hashCode(this.senha);
+        hash = 37 * hash + Objects.hashCode(this.nascimento);
+        hash = 37 * hash + Objects.hashCode(this.celular);
+        hash = 37 * hash + (this.ativo ? 1 : 0);
+        hash = 37 * hash + Objects.hashCode(this.permissao);
         return hash;
     }
 
@@ -161,17 +163,19 @@ public class Usuario implements  Serializable{
         if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
-        if (!Objects.equals(this.nascimento, other.nascimento)) {
-            return false;
-        }
         if (!Objects.equals(this.celular, other.celular)) {
             return false;
         }
         if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
+        if (!Objects.equals(this.nascimento, other.nascimento)) {
+            return false;
+        }
         return Objects.equals(this.permissao, other.permissao);
     }
    
+
+    
    
 }
