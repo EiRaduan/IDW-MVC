@@ -24,7 +24,12 @@ public class UsuarioBean {
     private List<Usuario> lista;
 
     public List<Usuario> getLista() {
-        return lista;
+        if(this.lista == null){
+            UsuarioRN usuarioRN = new UsuarioRN();
+            this.lista = usuarioRN.listar();
+        }
+        
+        return this.lista;
     }
 
     public void setLista(List<Usuario> lista) {

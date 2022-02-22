@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /*
@@ -32,14 +33,13 @@ public class ConexaoHibernateFilter implements Filter{
         try {
             this.sf.getCurrentSession().beginTransaction();
             chain.doFilter(request, response);
-            this.sf.getCurrentSession().getTransaction().commit();
             this.sf.getCurrentSession().close();
-        } catch (Throwable ex){
+        } catch (IOException | ServletException | HibernateException ex){
             try{
                 if(this.sf.getCurrentSession().getTransaction().isActive()){
                     this.sf.getCurrentSession().getTransaction().rollback();
                 }
-            } catch(Throwable t) {
+            } catch(HibernateException t) {
                 t.printStackTrace();
             }
             throw new ServletException(ex);
