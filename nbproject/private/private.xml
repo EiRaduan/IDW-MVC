@@ -3,22 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/Usuario.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/web/Publico/login.xhtml</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/UsuarioDAOHibernate.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/UtilException.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/UsuarioBean.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/web/Resources/css/estilo.css</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/UsuarioRN.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/DAOFactory.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/web/Publico/usuarioSucesso.xhtml</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/web/index.xhtml</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/web/Publico/usuario.xhtml</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/UsuarioDAO.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/RNException.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/hibernate.cfg.xml</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/DAOException.java</file>
-            <file>file:/home/saimor/NetBeansProjects/MVC/src/java/ConexaoHibernateFilter.java</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/src/java/ConexaoHibernateFilter.java</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/src/java/exemplo2/conexao/HibernateUtil.java</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/src/java/UsuarioBean.java</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/nbproject/build-impl.xml</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/src/java/hibernate.cfg.xml</file>
+            <file>file:/home/saimor/Projetos/IDW-MVC/web/Publico/login.xhtml</file>
         </group>
     </open-files>
 </project-private>
